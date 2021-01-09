@@ -8,8 +8,8 @@
         <title>Image Repository</title>
 
         <!--library style sheets-->
-        <link rel="stylesheet" href="{% static 'image_repository_app/lib/bootstrap-4.5.3/css/bootstrap.min.css' %}">
-        <link href="{% static 'image_repository_app/lib/fontawesome-free-5.15.1/css/all.css' %}" rel="stylesheet"> <!--load all styles -->
+        <link rel="stylesheet" href="{% static 'image_repository_app/libraries/bootstrap-4.5.3/css/bootstrap.min.css' %}">
+        <link href="{% static 'image_repository_app/libraries/fontawesome-free-5.15.1/css/all.css' %}" rel="stylesheet"> <!--load all styles -->
 
 
         <!--add the favicon-->
@@ -34,11 +34,11 @@
                         placeholder="Search"
                         aria-label="Search"
                         id="query"
-                        value="Paris"
+                        value="{{ query }}"
                 >
 
                 <!--search button-->
-                <div class="input-group-append" onclick="searchImage()">
+                <div class="input-group-append" onclick="submitSearchQuery()">
                     <span class="input-group-text grey lighten-3" id="basic-text1">
                         <i class="fas fa-search text-grey" aria-hidden="true">
                         </i>
@@ -62,7 +62,21 @@
             </div>
 
             <!--all the results will be filled here-->
-            <div class="row" id="search-results"></div>
+            <div class="row" id="search-results">
+                {%  if search_results %}
+                    {%  for search_result in search_results %}
+                        <div class="col-6 col-md-3 result-container">
+                            <div class="result">
+                                <img src="{% get_media_prefix %}{{ search_result.image }}" alt="{{ search_result.alt }}">
+                                <hr />
+                                <h6>{{ search_result.alt }}</h6>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h2>No results matching search query!</h2>
+                {% endif %}
+            </div>
         </div>
 
 
@@ -73,7 +87,7 @@
         <script crossorigin="anonymous"
                 integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
                 src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-        <script src="{% static 'image_repository_app/lib/bootstrap-4.5.3/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'image_repository_app/libraries/bootstrap-4.5.3/js/bootstrap.min.js' %}"></script>
 
         <!--custom js file-->
         <script src="{% static 'image_repository_app/js/index.js' %}"></script>

@@ -1,0 +1,73 @@
+body{
+
+}
+
+.container-fluid{
+    margin-top: 25px;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.input-group.md-form.form-sm.form-2 input {
+    border: 1px solid #bdbdbd;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.input-group.md-form.form-sm.form-2 input.grey-border {
+    border: 1px solid #555;
+}
+
+#search-info{
+    margin: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+#search-info #map {
+    height: 400px;
+    width: 600px;
+}
+
+#search-results{
+    margin-top: 5px;
+    padding: 15px;
+}
+
+#search-results h2{
+    text-align: center;
+    width: 100%;
+}
+
+#search-results .result-container{
+    padding: 10px;
+    height: 350px;
+    background-color: inherit;
+}
+
+#search-results .result-container:hover{
+    transform: scale(1.1);
+    position: relative;
+    z-index: 1000;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+#search-results .result-container .result{
+    height: 100%;
+    background-color: #EEE;
+    padding: 10px;
+    text-align: center;
+
+}
+
+#search-results .result-container .result h6{
+    text-align: center;
+}
